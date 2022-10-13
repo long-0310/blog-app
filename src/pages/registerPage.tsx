@@ -29,7 +29,6 @@ export default function RegisterPage(props: RegisterProps) {
       },
     };
     dispatch(signUpStart(data));
-    navigate("/login");
   };
   const formik = useFormik({
     initialValues: {
@@ -178,7 +177,7 @@ export default function RegisterPage(props: RegisterProps) {
                         to="/login"
                         className="text-sm text-black underline"
                       >
-                        Sign up now
+                        Sign in now
                       </Link>
                     </p>
                   </div>
