@@ -2,7 +2,6 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import DarkMode from "../darkmod/darkMode";
 import {
   getArticlesByAuthor,
   getPostDetail,
@@ -41,7 +40,6 @@ export default function SideNav(props: SideNavProps) {
   return (
     <div className=" w-1/4 h-full   fixed z-20 overflow-y-scroll top-0 right-0 border-l-gray1 side-nav border-l-[1px] ">
       <div className="h-full flex flex-col px-6 items-start justify-start  w-full ">
-        <DarkMode />
         <SearchForm />
         <div className="flex mb-6">
           <div className="w-2 h-2 my-auto mr-4 bg-green rounded-full"></div>

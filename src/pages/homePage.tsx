@@ -100,7 +100,7 @@ export default function HomePage(props: HomePageProps) {
           <div className="sm:w-[1000px]  sm:my-12 my-6 sm:px-32 overflow-hidden">
             <div className="flex pb-5 mb-9 border-b-[1px] border-b-gray3">
               <div className="mr-9 text-gray2">
-                <Link to={`/stories`} className=" bg-white  hover:bg-gray-200 ">
+                <Link to={`/newPost`} className=" bg-white  hover:bg-gray-200 ">
                   <svg width="19" height="19" className=" mt-[0.4px]">
                     <path d="M9 9H3v1h6v6h1v-6h6V9h-6V3H9v6z"></path>
                   </svg>

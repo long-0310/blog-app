@@ -17,7 +17,6 @@ export interface ProfilePageProps {}
 type FormData = {
   image: string;
   shortBio: string;
-  email: string;
 };
 export default function ProfilePage(props: ProfilePageProps) {
   const dispatch = useAppDispatch();
@@ -30,10 +29,10 @@ export default function ProfilePage(props: ProfilePageProps) {
     formState: { errors },
   } = useForm<FormData>();
 
-  const submitForm = ({ image, email, shortBio }: any) => {
+  const submitForm = ({ image, shortBio }: any) => {
     const data: updateUser = {
       user: {
-        email: email,
+        email: userProfile.email,
         bio: shortBio,
         image: image,
       },
@@ -76,12 +75,12 @@ export default function ProfilePage(props: ProfilePageProps) {
       <div className="sm:flex sm:mx-24 mx-4">
         <NavBar />
         <div>
-          <div className="sm:w-4/5 font-helvetica my-12 sm:px-32">
+          <div className="sm:w-[1000px]  sm:my-12 my-6 sm:px-32 overflow-hidden">
             <h1 className="text-4xl  mb-10">Setting Profile</h1>
             <div className="border-t-[1px] py-9 ">
               <h2 className="text-2xl mb-5 ">About you</h2>
               <form onSubmit={handleSubmit(submitForm)}>
-                <div className="grid sm:grid-cols-2 gap-x-8 gap-y-8 mb-8">
+                <div className="grid sm:grid-cols-2 gap-x-8 gap-y-8 mb-2">
                   <div className="">
                     <label className="mb-2 text-lg font-md " htmlFor="name">
                       Avatar
@@ -100,40 +99,26 @@ export default function ProfilePage(props: ProfilePageProps) {
                       your responses.
                     </p>
                   </div>
-                  <div className="">
-                    <label className="mb-2 text-lg font-md " htmlFor="email">
-                      Your Email
+                  <div className="mb-12">
+                    <label className="mb-2 text-lg font-md " htmlFor="shortBio">
+                      Short Bio
                     </label>
                     <input
-                      id="email"
-                      type="email"
+                      id="shortBio"
                       className="w-full my-2 p-1 border-b-[1px] outline-0 border-b-gray3"
                       placeholder="Add your short bio"
-                      {...register("email", { required: "Email is required." })}
+                      {...register("shortBio", {
+                        required: "Bio is required.",
+                      })}
                     />
                     <p className="text-sm text-red-500 mb-1">
-                      {errors.email?.message}
+                      {errors.shortBio?.message}
                     </p>
-                    <p className="text-xs">Change your email .</p>
+                    <p className="text-xs">
+                      Your short bio appears on your Profile and next to your
+                      stories. Max 160 characters.
+                    </p>
                   </div>
-                </div>
-                <div className="mb-12">
-                  <label className="mb-2 text-lg font-md " htmlFor="shortBio">
-                    Short Bio
-                  </label>
-                  <input
-                    id="shortBio"
-                    className="w-full my-2 p-1 border-b-[1px] outline-0 border-b-gray3"
-                    placeholder="Add your short bio"
-                    {...register("shortBio", { required: "Bio is required." })}
-                  />
-                  <p className="text-sm text-red-500 mb-1">
-                    {errors.shortBio?.message}
-                  </p>
-                  <p className="text-xs">
-                    Your short bio appears on your Profile and next to your
-                    stories. Max 160 characters.
-                  </p>
                 </div>
 
                 <button
